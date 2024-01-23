@@ -1,0 +1,488 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+#head {
+    z-index: 9;
+    transition: all 4000ms ease;
+}
+
+.header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 60px;
+    color: #D41E2F;
+}
+
+.site-image img {
+    object-fit: contain;
+    height: 180px;
+    width: 300px;
+    padding: 0;
+}
+
+#actionBar {
+    border: 1px solid black;
+    background: #D41E2F;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 64px;
+    margin-bottom: 30px;
+    z-index: 9;
+    width: 100%;
+    transition: 1s;
+}
+
+.searchDiv {
+    margin-left: 60px;
+}
+
+.filterDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    margin-right: 60px;
+}
+
+input#input {
+    border-radius: 10px;
+}
+
+input::placeholder {
+    color: #000000;
+    padding: 0;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+    background-size: 20px 20px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.searchBox {
+    background-color: transparent;
+    background-image: url(https://wp-themes.com/wp-content/themes/twentythirteen/images/search-icon.png);
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    border: none;
+    cursor: pointer;
+    height: 46px;
+    padding: 0 0 0 30px;
+    transition: width 600ms ease;
+    width: 0;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.searchBox:focus {
+    border: 1px solid black;
+    cursor: text;
+    outline: none;
+    width: 250px;
+    padding: 0 10px 0 40px;
+
+}
+
+
+#select, #select2, #clearBtn {
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid black;
+    height: 50px;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: background 600ms ease;
+}
+
+#select:hover, #select2:hover, #clearBtn:hover {
+    background: black;
+    color: #D41E2F;
+}
+
+.selectdiv:hover:after {
+    color: #D41E2F;
+}
+
+.selectdiv {
+    position: relative;
+    min-width: 230px;
+}
+
+.selectdiv select {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+select:focus-visible {
+    outline: none;
+}
+
+#clearBtn {
+    font-size: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.productContainer {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    max-width: 1400px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.column {
+    flex: 25%;
+    max-width: 25%;
+}
+
+.card {
+    margin: 30px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
+}
+
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.imageContainer {
+    padding: 10px;
+}
+
+.imageWrapper {
+    position: relative;
+    padding-bottom: 100%;
+}
+
+.imageWrapper img {
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+
+.innerBox {
+    padding: 15px 6px;
+    background: aliceblue;
+    border-radius: 24px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-align: center;
+    font-weight: 600;
+}
+
+.tagline {
+    text-align: center;
+    height: auto;
+}
+
+.values {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#loading {
+    position: relative;
+    height: 100px;
+}
+
+.loading {
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    z-index: 9;
+    background: #D41E2F;
+    padding: 8px 18px;
+    border-radius: 5px;
+    left: 50%;
+    top: 60%;
+}
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border: none;
+    outline: none;
+    background-color: #D41E2F;
+    cursor: pointer;
+    padding: 25px;
+    border-radius: 4px;
+}
+
+#topBtn:before {
+    content: "";
+    position: absolute;
+    inset: 30%;
+    transform: translateY(20%) rotate(-45deg);
+    border-top: 5px solid #fff;
+    border-right: 5px solid #fff;
+}
+
+#noResultPage {
+    display: none;
+}
+
+#noResultPage img {
+    object-fit: contain;
+    padding: 20px;
+    display: block;
+    width: 30%;
+    margin: 50px auto;
+}
+
+
+@media (max-width: 770px) {
+
+    .header {
+        padding: 15px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #000000;
+        flex-wrap: wrap;
+    }
+
+    .site-image img {
+        object-fit: contain;
+        height: 100px;
+        width: auto;
+        padding: 0;
+    }
+
+
+    h1 {
+        font-size: revert;
+        margin: 0;
+    }
+
+    #actionBar {
+        justify-content: flex-start;
+        gap: 0;
+        background: none;
+        border: none;
+        margin-bottom: 0;
+        position: relative;
+    }
+
+    .searchDiv {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        display: contents;
+        width: 100%;
+    }
+
+    .searchBox {
+        font-size: 14px;
+        height: 40px;
+        width: 100%;
+        padding: 0 10px 0 40px;
+        border: 1px solid black;
+        transition: none;
+
+    }
+
+    .searchBox:focus {
+
+        font-size: 14px;
+        height: 40px;
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    input::placeholder {
+        color: unset;
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+
+    .filterDiv {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 15px;
+        margin: 0;
+        justify-content: center;
+    }
+
+    .selectdiv {
+        position: relative;
+        min-width: unset;
+        margin: 0 10px;
+    }
+
+
+    #select, #select2 {
+        padding: 0;
+        cursor: pointer;
+        border: 0.5px solid black;
+        margin: 0;
+        font-size: 13px;
+        height: 40px;
+    }
+
+    #clearBtn {
+        font-size: 12px;
+        border: none;
+        text-decoration: underline;
+        height: auto;
+    }
+
+    input#input {
+        margin: 10px;
+    }
+
+    #noResultPage img {
+        width: 80%;
+    }
+
+    div#selectDiv {
+        margin-left: 0;
+        display: initial;
+        margin-bottom: 0;
+    }
+
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    .sticky {
+        position: unset;
+    }
+
+    .tagline {
+        display: none;
+    }
+
+    .values {
+        display: contents;
+    }
+
+    .loading {
+        left: 35%;
+        top: 50%;
+    }
+
+    #select:hover, #select2:hover, #clearBtn:hover {
+        background: unset;
+        color: unset;
+    }
+
+    .selectdiv:hover:after {
+        color: unset;
+    }
+
+    .card:hover {
+        box-shadow: unset;
+    }
+
+}
+
+@media (min-width: 760px) and (max-width: 1024px) {
+
+    #actionBar {
+        gap: 15px;
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .searchDiv {
+        width: 80%;
+        display: contents;
+    }
+
+    .searchBox {
+        font-size: 14px;
+        height: 40px;
+        width: 80%;
+        padding: 0 10px 0 40px;
+        border: 1px solid black;
+        transition: none;
+
+    }
+
+    .searchBox:focus {
+        font-size: 14px;
+        height: 40px;
+        width: 80%;
+        border: 1px solid black;
+    }
+
+    #select:hover, #select2:hover, #clearBtn:hover {
+        background: unset;
+        color: unset;
+    }
+
+    .selectdiv:hover:after {
+        color: unset;
+    }
+
+    .card:hover {
+        box-shadow: unset;
+    }
+
+    .column {
+        flex: 33.3%;
+        max-width: 33.3%;
+    }
+
+}
+
+
+

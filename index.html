@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>PUNK PUNCH</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <div id="head">
+
+        <header class="header">
+
+            <h1>PUNK</h1>
+
+            <div class="site-image">
+                <img src="image/punklogo2.png" alt="Punk Power"/>
+            </div>
+
+            <h1>PUNCH</h1>
+
+        </header>
+
+        <div id="actionBar">
+
+            <div class="searchDiv">
+                <input type="search" id="input" class="searchBox" onkeyup="debounceFunction()" v-model="search"
+                       placeholder="Search Name..." title="Search"/>
+            </div>
+
+            <div class="filterDiv">
+                <div class="selectdiv">
+                    <select id="select" v-model="abvValue" @change="computeURL" title="Select ABV">
+                        <option selected hidden disabled value="">ABV RANGE</option>
+                        <option value="&abv_lt=5">ABV : 0 to 5</option>
+                        <option value="&abv_gt=4.99&abv_lt=10">ABV : 5 to 10</option>
+                        <option value="&abv_gt=9.99&abv_lt=15">ABV : 10 to 15</option>
+                        <option value="&abv_gt=14.99&abv_lt=20">ABV : 15 to 20</option>
+                        <option value="&abv_gt=19.99">ABV : 20 and above</option>
+                    </select>
+                </div>
+
+                <div class="selectdiv">
+                    <select id="select2" v-model="ibuValue" @change="computeURL" title="Select IBU">
+                        <option selected hidden disabled value="">IBU RANGE</option>
+                        <option value="&ibu_lt=25">IBU : 0 to 25</option>
+                        <option value="&ibu_gt=24.99&ibu_lt=50">IBU : 25 to 50</option>
+                        <option value="&ibu_gt=49.99&ibu_lt=75">IBU : 50 to 75</option>
+                        <option value="&ibu_gt=74.99&ibu_lt=100">IBU : 75 to 100</option>
+                        <option value="&ibu_gt=99.99">IBU : 100 and above</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button id="clearBtn" @click="clearFilter" title="Reset Filters"> RESET</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="noResultPage">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3XnhzVG33HwBGdZe3PUfjlvdNUCajUNBWkw&usqp=CAU"
+             alt="Oops! No Data Found. Try Searching For Some Other Products..."/>
+
+    </div>
+
+    <div class="productContainer">
+
+        <div class="mainContainer">
+
+            <div class="row">
+
+
+                <div class="column" v-for="item in responseData">
+
+                    <div class="card">
+
+                        <div class="imageContainer">
+
+                            <div class="imageWrapper">
+
+                                <img v-if="item.image_url" :src="item.image_url"/>
+                                <img v-else src="image/punk.jpeg"/>
+
+                            </div>
+                        </div>
+
+                        <div class="innerBox">
+                            <div class="title">
+                                {{item.name}}
+                            </div>
+
+                            <div class="tagline">
+                                {{item.tagline}}
+                            </div>
+
+                            <div class="values">
+
+                                <div> ABV Value : {{item.abv}}</div>
+
+                                <div> IBU Value : {{item.ibu}}</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="loading">
+
+        <div class="loading" v-show="loading">
+            <span class="fa fa-spinner fa-spin"></span> Loading
+        </div>
+
+    </div>
+
+
+</div>
+
+<button onclick="topFunction()" id="topBtn" title="Go to top"></button>
+
+<script src="punk.js"></script>
+
+</body>
+</html>
